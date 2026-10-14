@@ -5,10 +5,49 @@
 <title>Python Dodge — Arcade Survival</title>
 <style>
 :root{color-scheme:dark;--bg:#080d18;--green:#4cf2a1;--gold:#ffd166;--red:#ff637d;--muted:#91a0b8;--line:#293950}*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(ellipse at 50% -20%,#1a3150,#080d18 60%);color:#f5f8ff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}.shell{width:min(100%,740px);min-height:100dvh;margin:auto;padding:clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px}.top,.bottom,.brand,.stats,.buttons{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{justify-content:flex-start}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(140deg,var(--green),#20b77b);color:#07150e;display:grid;place-items:center;font-weight:1000}.eyebrow,.label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:800}.brand h1{font-size:15px;letter-spacing:.12em;margin:3px 0}.best{border:1px solid var(--line);background:#101a2b;border-radius:999px;padding:9px 12px;color:var(--muted);font-size:11px}.best b{color:var(--gold)}.card{overflow:hidden;position:relative;border:1px solid #2b3c52;border-radius:24px;background:#070c15;box-shadow:0 24px 70px #0008}.hud{position:absolute;z-index:2;inset:0 0 auto;padding:14px 16px;display:flex;justify-content:space-between;background:linear-gradient(#070c15e8,transparent);pointer-events:none}.stats{justify-content:flex-start;gap:20px}.stat small{display:block;font-size:9px;letter-spacing:.15em;color:var(--muted);font-weight:800}.stat strong{display:block;font-size:19px;margin-top:2px;font-variant-numeric:tabular-nums}.stat:first-child strong{color:var(--green)}.lives strong{color:var(--red)}.stage{position:relative;height:clamp(410px,65dvh,610px);min-height:390px}canvas{display:block;width:100%;height:100%;touch-action:none}.overlay{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;padding:20px;background:#070c15c9;backdrop-filter:blur(12px);text-align:center}.overlay[hidden]{display:none}.dialog{width:min(100%,360px);display:flex;flex-direction:column;align-items:center}.tag{border:1px solid #4cf2a13b;background:#4cf2a111;border-radius:999px;padding:7px 11px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.15em}.hero{font-size:clamp(38px,8vw,58px);line-height:.94;letter-spacing:-.065em;font-weight:1000;margin:19px 0 12px}.hero span{color:var(--green)}.desc{color:#aab6c9;font-size:13px;line-height:1.65;max-width:300px;margin:0 auto 17px}.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-bottom:14px;text-align:left}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.12em}.field select{width:100%;background:#111d2e;border:1px solid #304159;color:white;border-radius:11px;padding:11px 9px}.btn{border:0;border-radius:13px;padding:13px 16px;font-size:12px;font-weight:900;letter-spacing:.07em}.primary{background:var(--green);color:#06150e}.secondary{background:#ffffff0d;color:#eef3ff;border:1px solid #ffffff1c}.buttons{width:100%}.buttons>*{flex:1}.keys{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:16px}.key{font-size:10px;color:#aab6c9;background:#ffffff08;border:1px solid #ffffff12;border-radius:8px;padding:7px 9px}.key b{color:white}.endtitle{font-size:33px;font-weight:1000;margin:13px 0 6px}.scoregrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin:14px 0}.scorebox{background:#ffffff08;border:1px solid #ffffff12;border-radius:14px;padding:13px;text-align:left}.scorebox small{display:block;font-size:9px;letter-spacing:.13em;color:var(--muted);font-weight:900}.scorebox strong{display:block;font-size:24px;margin-top:5px}.scorebox:last-child strong{color:var(--gold)}.bottom{flex-wrap:wrap}.status{font-size:10px;letter-spacing:.08em;color:var(--muted)}.buttons-inline{display:flex;gap:8px}.iconbtn{border:1px solid #ffffff18;background:#ffffff09;color:#dce5f5;border-radius:10px;padding:9px 11px;font-size:11px;font-weight:800}.iconbtn:disabled{opacity:.35}.touch{display:none;grid-template-columns:1fr 1fr;gap:10px}.touch button{height:48px;border:1px solid #ffffff15;background:#ffffff09;color:white;border-radius:13px;font-size:18px;font-weight:900;touch-action:none}.hint{text-align:center;color:#7888a1;font-size:11px;line-height:1.6;margin:0}.foot{text-align:center;color:#63728a;font-size:10px;letter-spacing:.1em;margin-top:auto}.foot b{color:var(--green)}button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}@media(max-width:520px){.shell{padding:13px;gap:12px}.stage{height:min(63dvh,560px);min-height:370px}.touch{display:grid}.hud{padding:12px}.stats{gap:13px}.stat strong{font-size:17px}.overlay{padding:15px}.hero{margin-top:15px}.desc{font-size:12px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* Supabase account panel */
+.auth-card{border:1px solid var(--line);border-radius:18px;background:#101a2b;padding:14px 16px;display:flex;flex-direction:column;gap:11px}
+.auth-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.auth-title{font-size:13px;font-weight:900}.auth-sub{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:4px}
+.auth-email{font-size:11px;color:var(--green);font-weight:800;overflow-wrap:anywhere;text-align:right}
+.auth-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.auth-fields input{min-width:0;width:100%;background:#080d18;border:1px solid #30435c;border-radius:10px;padding:11px 12px;color:#f5f8ff;font:inherit;font-size:12px}
+.auth-fields input:focus{outline:2px solid var(--green);outline-offset:1px}
+.auth-actions{display:flex;flex-wrap:wrap;gap:8px}
+.auth-actions .btn{font-size:11px;padding:10px 13px}
+.auth-message{font-size:11px;line-height:1.5;color:#aab6c9;min-height:0}
+.auth-message:empty{display:none}.auth-message.error{color:var(--red)}.auth-message.success{color:var(--green)}
+.auth-stats{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:11px}
+.auth-stats b{color:var(--gold)}
+@media(max-width:600px){.auth-fields{grid-template-columns:1fr}.auth-head{align-items:flex-start}.auth-email{text-align:left}.auth-actions .btn{flex:1}}
+
 </style>
 </head>
 <body><main class="shell">
 <header class="top"><div class="brand"><div class="logo">Py</div><div><div class="eyebrow">ARCADE SURVIVAL</div><h1>PYTHON DODGE</h1></div></div><div class="best">BEST <b id="bestTop">00000</b></div></header>
+
+<section class="auth-card" aria-label="계정 및 플레이 기록">
+  <div class="auth-head">
+    <div><div class="auth-title">계정 · 클라우드 기록</div><span class="auth-sub" id="authStatus">로그인하면 플레이 점수가 계정에 저장됩니다.</span></div>
+    <div class="auth-email" id="accountEmail" hidden></div>
+  </div>
+  <form id="authForm">
+    <div class="auth-fields">
+      <input id="displayName" type="text" maxlength="32" autocomplete="nickname" placeholder="닉네임 (회원가입 시)" aria-label="닉네임" hidden>
+      <input id="authEmail" type="email" autocomplete="email" placeholder="이메일" aria-label="이메일" required>
+      <input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="비밀번호 (6자 이상)" aria-label="비밀번호" required>
+    </div>
+    <div class="auth-actions">
+      <button class="btn primary" id="authSubmit" type="submit">로그인</button>
+      <button class="btn secondary" id="authMode" type="button">회원가입으로 전환</button>
+      <button class="btn secondary" id="signOut" type="button" hidden>로그아웃</button>
+    </div>
+  </form>
+  <div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
+  <div class="auth-stats" id="authStats" hidden><span>내 최고 점수 <b id="cloudBest">00000</b></span><span>저장된 플레이 <b id="cloudGames">0</b></span></div>
+</section>
+
 <section class="card"><div class="hud"><div class="stats"><div class="stat"><small>SCORE</small><strong id="score">00000</strong></div><div class="stat"><small>LEVEL</small><strong id="level">01</strong></div></div><div class="stat lives"><small>LIVES</small><strong id="lives">♥ ♥ ♥</strong></div></div>
 <div class="stage" id="stage"><canvas id="game" aria-label="게임 영역: 좌우로 움직여 버그를 피하고 코인을 모으세요"></canvas>
 <section class="overlay" id="menu"><div class="dialog"><div class="tag">BUILD · DODGE · SURVIVE</div><h2 class="hero">PYTHON<br><span>DODGE</span></h2><p class="desc">버그는 피하고 Py 코인을 모으세요. 오래 살아남을수록 게임 속도가 빨라집니다.</p><div class="settings"><div class="field"><label for="difficulty">난이도</label><select id="difficulty"><option value="easy">쉬움</option><option value="normal" selected>보통</option><option value="hard">어려움</option></select></div><div class="field"><label for="audio">오디오</label><select id="audio"><option value="on" selected>사운드 켜기</option><option value="off">음소거</option></select></div></div><button class="btn primary" id="start" style="width:100%">▶ 게임 시작</button><div class="keys"><div class="key"><b>← → / A D</b> 이동</div><div class="key"><b>P / ESC</b> 일시정지</div><div class="key"><b>터치</b> 이동</div></div></div></section>
@@ -16,8 +55,9 @@
 <section class="overlay" id="over" hidden><div class="dialog"><div class="tag" style="color:var(--red);border-color:#ff637d44">SESSION ENDED</div><h2 class="endtitle">GAME OVER</h2><p class="desc" id="endmsg">다시 도전해 최고 기록을 만들어 보세요.</p><div class="scoregrid"><div class="scorebox"><small>이번 점수</small><strong id="finalScore">00000</strong></div><div class="scorebox"><small>최고 기록</small><strong id="finalBest">00000</strong></div></div><div class="buttons"><button class="btn primary" id="retry">다시 도전</button><button class="btn secondary" id="back">메뉴</button></div></div></section>
 </div></section>
 <div class="bottom"><div class="status" id="status">READY · 난이도 보통</div><div class="buttons-inline"><button class="iconbtn" id="pause" disabled>Ⅱ 일시정지</button><button class="iconbtn" id="mute" aria-pressed="true">♪ 사운드 ON</button></div></div>
-<div class="touch"><button id="left" aria-label="왼쪽 이동">←</button><button id="right" aria-label="오른쪽 이동">→</button></div><p class="hint">버그에 닿으면 생명을 잃습니다. 코인을 모으고 콤보를 이어가며 최고 점수에 도전하세요.</p><footer class="foot"><b>●</b> CANVAS ARCADE · LOCAL BEST SCORE · NO ACCOUNT REQUIRED</footer>
+<div class="touch"><button id="left" aria-label="왼쪽 이동">←</button><button id="right" aria-label="오른쪽 이동">→</button></div><p class="hint">버그에 닿으면 생명을 잃습니다. 코인을 모으고 콤보를 이어가며 최고 점수에 도전하세요.</p><footer class="foot"><b>●</b> CANVAS ARCADE · SUPABASE AUTH · CLOUD SCORES</footer>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d'),stage=$('stage');
@@ -29,6 +69,92 @@ let best=Number(store.get('pythonDodgeBest',0))||0,mode='menu',difficulty='norma
 let w=400,h=600,dpr=1,raf=0,last=0,elapsed=0,score=0,lives=3,spawn=0,coinTimer=0,shake=0,combo=0,comboTimer=0,musicTimer=0;
 let bugs=[],coins=[],particles=[],stars=[],keys={left:false,right:false},player={x:200,y:500,target:200,r:13,invuln:0,trail:[],vx:0,lean:0,animTime:0,blink:0,blinkTimer:2.4};
 const hud={score:$('score'),level:$('level'),lives:$('lives'),best:$('bestTop'),status:$('status')};
+
+const SUPABASE_URL='https://afirildirwdwzgtefcer.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_Afe7elJ77rBlwxvioYziRA_0w6NEOBR';
+const authClient=window.supabase&&window.supabase.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
+let currentUser=null,signupMode=false,cloudBest=0;
+const authMessage=$('authMessage');
+function authNotice(message,type=''){authMessage.textContent=message;authMessage.className='auth-message'+(type?' '+type:'')}
+function updateAuthUI(){
+  const signedIn=!!currentUser;
+  $('authForm').hidden=signedIn;
+  $('authMode').hidden=signedIn;
+  $('signOut').hidden=!signedIn;
+  $('accountEmail').hidden=!signedIn;
+  $('authStats').hidden=!signedIn;
+  $('accountEmail').textContent=signedIn?(currentUser.email||'로그인 사용자'):'';
+  $('authStatus').textContent=signedIn?'로그인됨 · 이 계정의 플레이 기록을 저장합니다.':'로그인하면 플레이 점수가 계정에 저장됩니다.';
+  if(!signedIn){$('cloudBest').textContent='00000';$('cloudGames').textContent='0';cloudBest=0}
+}
+async function refreshCloudStats(){
+  if(!authClient||!currentUser)return;
+  const uid=currentUser.id;
+  const {data,error,count}=await authClient.from('game_scores').select('score',{count:'exact'}).eq('user_id',uid).order('score',{ascending:false}).limit(1);
+  if(error){authNotice('플레이 기록을 불러오지 못했습니다: '+error.message,'error');return}
+  if(!currentUser||currentUser.id!==uid)return;
+  cloudBest=Number(data&&data[0]?data[0].score:0)||0;
+  $('cloudBest').textContent=pad(cloudBest);
+  $('cloudGames').textContent=String(count||0);
+  best=Math.max(best,cloudBest);updateHud();
+}
+async function saveCloudScore(finalScore,level){
+  if(!authClient||!currentUser)return;
+  const uid=currentUser.id;
+  const {error}=await authClient.from('game_scores').insert({user_id:uid,score:finalScore,difficulty:level});
+  if(error){authNotice('점수를 저장하지 못했습니다. 다시 로그인한 뒤 시도하세요.','error');return}
+  authNotice('플레이 점수가 계정에 안전하게 저장되었습니다.','success');
+  await refreshCloudStats();
+}
+if(!authClient){
+  $('authSubmit').disabled=true;$('authMode').disabled=true;
+  $('authStatus').textContent='인증 모듈을 불러오지 못했습니다. 페이지를 새로고침하세요.';
+}else{
+  $('authForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const email=$('authEmail').value.trim(),password=$('authPassword').value;
+    $('authSubmit').disabled=true;$('authMode').disabled=true;
+    authNotice(signupMode?'회원가입 처리 중…':'로그인 중…');
+    try{
+      if(signupMode){
+        const displayName=$('displayName').value.trim();
+        const {data,error}=await authClient.auth.signUp({email,password,options:{data:{display_name:displayName},emailRedirectTo:window.location.origin+window.location.pathname}});
+        if(error)throw error;
+        if(data.session){
+          currentUser=data.user;updateAuthUI();authNotice('회원가입 및 로그인이 완료되었습니다.','success');await refreshCloudStats();
+        }else{
+          authNotice('회원가입 요청이 완료되었습니다. 이메일 인증 링크를 확인한 뒤 로그인하세요.','success');
+        }
+      }else{
+        const {data,error}=await authClient.auth.signInWithPassword({email,password});
+        if(error)throw error;
+        currentUser=data.user;updateAuthUI();authNotice('로그인되었습니다.','success');await refreshCloudStats();
+      }
+    }catch(err){authNotice(err.message||'인증 중 오류가 발생했습니다.','error')}
+    finally{$('authSubmit').disabled=false;$('authMode').disabled=false}
+  });
+  $('authMode').addEventListener('click',()=>{
+    signupMode=!signupMode;
+    $('displayName').hidden=!signupMode;
+    $('authPassword').autocomplete=signupMode?'new-password':'current-password';
+    $('authSubmit').textContent=signupMode?'회원가입':'로그인';
+    $('authMode').textContent=signupMode?'로그인으로 전환':'회원가입으로 전환';
+    authNotice(signupMode?'이메일과 6자 이상의 비밀번호를 입력하세요.':'');
+  });
+  $('signOut').addEventListener('click',async()=>{
+    $('signOut').disabled=true;
+    const {error}=await authClient.auth.signOut();
+    $('signOut').disabled=false;
+    if(error){authNotice(error.message,'error');return}
+    currentUser=null;updateAuthUI();authNotice('로그아웃되었습니다.','success');
+  });
+  authClient.auth.onAuthStateChange((_event,session)=>{
+    currentUser=session&&session.user?session.user:null;
+    updateAuthUI();
+    if(currentUser){setTimeout(()=>{refreshCloudStats()},0)}
+  });
+}
+
 function resize(){const r=stage.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);w=Math.max(280,r.width);h=Math.max(360,r.height);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);player.y=h*.82;player.x=clamp(player.x,20,w-20);player.target=clamp(player.target,20,w-20);stars=Array.from({length:65},()=>({x:Math.random()*w,y:Math.random()*h,r:rand(.5,1.6),a:rand(.15,.55),speed:rand(8,30)}));draw()}
 function audioReady(){if(!sound)return;try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;if(!audio){audio=new AC();master=audio.createGain();master.gain.value=.35;master.connect(audio.destination)}if(audio.state==='suspended')audio.resume()}catch(_){}}
 function tone(freq,dur,type='sine',vol=.1,slide=0){if(!sound)return;audioReady();if(!audio||!master)return;try{const now=audio.currentTime,o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.setValueAtTime(freq,now);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(20,freq+slide),now+dur);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(vol,now+.012);g.gain.exponentialRampToValueAtTime(.0001,now+dur);o.connect(g);g.connect(master);o.start(now);o.stop(now+dur+.02)}catch(_){}}
@@ -37,7 +163,7 @@ function music(dt){if(!sound||mode!=='playing')return;musicTimer-=dt;if(musicTim
 function updateHud(){hud.score.textContent=pad(score);hud.level.textContent=String(1+Math.floor(elapsed/18)).padStart(2,'0');hud.lives.textContent=lives>0?('♥ '.repeat(lives)).trim():'—';hud.best.textContent=pad(best)}
 function setMode(next){mode=next;Object.entries(overlays).forEach(([k,v])=>v.hidden=k!==next);$('pause').disabled=next!=='playing';if(next==='playing'){hud.status.textContent='PLAYING · '+modes[difficulty].label;last=performance.now();if(!raf)raf=requestAnimationFrame(loop)}else{cancelAnimationFrame(raf);raf=0;if(next==='menu')hud.status.textContent='READY · 난이도 '+modes[difficulty].label;else if(next==='paused')hud.status.textContent='PAUSED · 일시정지';else hud.status.textContent='SESSION ENDED · '+pad(score)}draw()}
 function start(){audioReady();difficulty=$('difficulty').value;sound=$('audio').value==='on';score=0;lives=modes[difficulty].lives;elapsed=0;spawn=.5;coinTimer=1.2;shake=0;combo=0;comboTimer=0;bugs=[];coins=[];particles=[];player={x:w/2,y:h*.82,target:w/2,r:13,invuln:0,trail:[],vx:0,lean:0,animTime:0,blink:0,blinkTimer:rand(1.5,3.5)};keys={left:false,right:false};updateHud();sfx('start');setMode('playing')}
-function end(){if(mode!=='playing')return;const old=best;best=Math.max(best,Math.floor(score));if(best!==old)store.set('pythonDodgeBest',best);$('finalScore').textContent=pad(score);$('finalBest').textContent=pad(best);$('endmsg').textContent=best>old&&score>0?'신기록! 최고 점수가 이 기기에 저장되었습니다.':'다시 도전해 더 높은 기록을 만들어 보세요.';updateHud();sfx('over');setMode('over')}
+function end(){if(mode!=='playing')return;const old=best;best=Math.max(best,Math.floor(score));if(best!==old)store.set('pythonDodgeBest',best);$('finalScore').textContent=pad(score);$('finalBest').textContent=pad(best);$('endmsg').textContent=best>old&&score>0?'신기록! 최고 점수가 이 기기에 저장되었습니다.':'다시 도전해 더 높은 기록을 만들어 보세요.';updateHud();if(currentUser)saveCloudScore(Math.floor(score),difficulty);sfx('over');setMode('over')}
 function spawnBug(){const r=rand(12,18);bugs.push({x:rand(r+4,w-r-4),y:-25,r,vy:rand(145,220)*modes[difficulty].speed*(1+elapsed/85),rot:rand(-1,1),spin:rand(-2,2),type:Math.random()>.5?'bug':'error'})}
 function burst(x,y,color,n=10){for(let i=0;i<n;i++){const a=rand(0,Math.PI*2),v=rand(35,155);particles.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:rand(.25,.6),max:.6,color,r:rand(1.5,3.2)})}}
 function hit(a,b){return Math.hypot(a.x-b.x,a.y-b.y)<a.r+b.r}
